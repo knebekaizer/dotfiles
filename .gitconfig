@@ -1,0 +1,103 @@
+[user]
+	name = Vladimir Ivanov
+#	email = vladimir.d.ivanov@jetbrains.com
+	email = knebekaizer@gmail.com
+[includeIf "gitdir:~/work/**"]
+    path = ~/work/.gitconfig
+
+[core]
+	excludesfile = ~/.gitignore
+#	editor = mate --wait
+	editor = emacs
+
+[push]
+	default = upstream
+[pull]
+	rebase = true
+
+[diff]
+#	tool = idea
+	tool = meld
+#	tool = bcomp
+	renameLimit = 99999
+
+[merge]
+#	tool = kdiff3
+#	tool = idea
+	tool = meld
+#	tool = bcomp
+	renameLimit = 99999
+
+[grep]
+	lineNumber = true
+
+[color]
+	ui = auto
+[giggle]
+	main-window-maximized = false
+	main-window-geometry = 965x639+576+155
+	history-view-vpane-position = 429
+	file-view-vpane-position = 487
+	main-window-view = FileView
+
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	sw = switch
+	st = status
+	sti = status --ignored=matching
+	stn = status --untracked-files=no
+	unstage = reset HEAD --
+	last = log -1 HEAD
+	ls = ls-tree --name-only
+	wt = worktree
+	cloneless = clone --filter=blob:none
+
+	l1 = log --date=short --pretty='%C(blue)%h%C(reset) %C(green)%>(10,trunc)%ar%C(reset) %cd%C(reset) %C(bold black)%<(24,trunc)%an%C(reset) - %s'
+#	l1 = log --pretty='%C(blue)%h%C(reset) %C(green)%ai%C(reset) %C(bold black)%<(32,trunc)%an%C(reset) - %s'
+#	l1 = log --pretty='%h:%ai %<(32,trunc)%an - %s'
+#	lg = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(blue)%h%C(reset) - %C(green)(%ar)%C(reset) %C(black)%s%C(reset) %C(bold black)- %an%C(reset)%C(bold red)%d%C(reset)' --all
+	lg = log --graph --abbrev-commit --decorate --date=short --format=format:'%C(blue)%h%C(reset) - %C(green)(%ar)%C(reset) %cd %C(black)%s%C(reset) %C(bold black)- %an%C(reset)%C(bold red)%d%C(reset)' --all
+	lg0 = log --graph --abbrev-commit --decorate --date=short --format=format:'%C(blue)%h%C(reset) - %C(green)(%ar)%C(reset) %cd %C(black)%s%C(reset) %C(bold black)- %an%C(reset)%C(bold red)%d%C(reset)' --all --simplify-by-decoration
+
+	lg4 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(black)%s%C(reset) %C(dim black)- %an%C(reset)' --all
+	lg5 = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	
+	lg3 = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+	lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+	aliases = config --get-regexp '^alias\\.'
+#	lg = !"git lg1"
+
+[http]
+	sslVerify = false
+
+[difftool "idea"]
+    cmd = idea diff $(cd $(dirname $LOCAL) && pwd)/$(basename $LOCAL) $(cd $(dirname $REMOTE) && pwd)/$(basename $REMOTE)
+[mergetool "idea"]
+    cmd = idea merge $(cd $(dirname $LOCAL) && pwd)/$(basename $LOCAL) $(cd $(dirname $REMOTE) && pwd)/$(basename $REMOTE) $(cd $(dirname $BASE) && pwd)/$(basename $BASE) $(cd $(dirname $MERGED) && pwd)/$(basename $MERGED)
+    trustExitCode = true
+
+[difftool "bcomp"]
+    cmd = bcomp \"$LOCAL\" \"$REMOTE\"
+[mergetool "bcomp"]
+    cmd = bcomp \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
+    trustExitCode = true
+	
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /Applications/Development/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[filesystem "Oracle Corporation|11.0.5|/dev/disk1s5"]
+	timestampResolution = 10000 nanoseconds
+	minRacyThreshold = 0 nanoseconds
+[filesystem "JetBrains s.r.o.|11.0.10|/dev/disk1s5"]
+	timestampResolution = 11000 nanoseconds
+	minRacyThreshold = 0 nanoseconds
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true

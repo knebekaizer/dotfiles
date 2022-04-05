@@ -1,0 +1,23 @@
+escape ^\\              # use Ctl-\ instead of Cntr-A
+#escape ^``
+
+#caption always "%n(%t) : %C"
+#caption always "%{= kc}%H (system load: %l)%-21=%{= .m}%D %d.%m.%Y %0c"
+#caption always "%{+b kG} %=%{-s} %{.K}%-w%{.B}%n %{.G}%t%{.K}%+w%{.G} %{+s} %="
+#caption always "%{+b kG} %=%{-s} %{.y}%-w%{.C}%n:%t%{.y}%+w%{.G} %{+s} %="
+caption always "%{+b kG} %=%{-s} %{.y}%-w%{.C}%n:%t%{.y}%+w%{.G} %{+s} %= %{=b Gk}%0c"
+
+defscrollback 10000
+startup_message off
+
+#hardstatus string '%{= kg}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{=b kR}(%{W}%n*%f %t%?(%u)%?%{=b kR})%{= kw}%?% Lw%?%?%= %{g}]%{=b C}[ %d %M %c ]%{W}'
+
+#hardstatus on
+#hardstatus alwayslastline
+
+silencewait 15			# default: 30
+msgwait 15
+pow_detach_msg "Screen session of \$LOGNAME \$:cr:\$:nl:ended."
+
+bind ' ' windowlist -b
+

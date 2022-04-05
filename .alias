@@ -1,0 +1,49 @@
+#alias ls='ls -F --color=none'
+alias l='ls -1F'
+alias lc='ls -1F --color=auto'
+alias ll='ls -lhp'
+alias la='ls -Ap1'
+alias l.='ls -dp1 .[a-zA-Z]*'
+alias md5='md5sum'
+
+alias g=git
+
+alias _tgz='tar zxf'
+alias _tbz='tar jxf'
+alias _txz='tar Jxf'
+tarz() { tar -cpP "${1%/}" | pv -s $(du -sk "${1%/}" | cut -f1)K | zstd -T0 > "${1%/}.tar.zst"; }
+_tzs() { zstd -d -c "$1" | tar xf - ; }
+
+alias getdate='date +%m%d%H%M%Y'
+alias grep='/usr/bin/grep --exclude-dir=.idea --exclude-dir=.svn --exclude-dir=.hg --exclude-dir=.git --binary-files=without-match --no-messages --color=auto'
+#alias ifconfig='ipconfig'
+alias utf2win='iconv -f utf-8 -t cp1251'
+alias win2utf='iconv -f cp1251 -t utf-8'
+alias rsync='rsync --exclude=.svn/ --exclude=.git/ --exclude=.DS_Store'
+alias diff='diff --exclude=.svn --exclude=.git'
+alias cp='cp -p'
+alias wget='wget --user-agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:75.0) Gecko/20100101 Firefox/75.0"'
+alias emacs='/usr/bin/emacs -nw'
+
+#alias settime='sudo /usr/sbin/ntpdate pool.ntp.org'
+#alias setdate='sudo /usr/sbin/ntpdate pool.ntp.org'
+
+alias svn='svn --username=vladimir.ivanov'
+#alias mempad='wine ~/misc/Mempad.exe ~/misc/work.pad >&/dev/null &'
+#alias polar='wine ~/.wine/drive_c/Program\ Files\ \(x86\)/Polar/Polar\ ProTrainer/Polar\ 32.exe &>/dev/null &'
+
+alias gitx='open -a GitX .'
+alias lg='git lg'
+
+#alias ps?='ps aux | grep -i'
+alias ps?='_ps_tmp_=`ps aux` && echo "$_ps_tmp_" | grep -i'
+
+# MacOS
+alias ldd='otool -L'
+alias nproc='sysctl -n hw.ncpu'
+
+#alias zim='screen -S zim -d -m /usr/local/bin/zim'
+
+#alias ssh-p='ssh -F ~/.ssh/config_pola'
+#alias scp-p='scp -F ~/.ssh/config_pola'
+

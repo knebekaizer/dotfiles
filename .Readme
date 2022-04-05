@@ -1,0 +1,13 @@
+How To
+------
+
+Init
+	git init --bare $HOME/.dotfiles
+	alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+	dotfiles config --local status.showUntrackedFiles no
+	echo "alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'" >> $HOME/.bashrc
+
+Clone
+	git clone --bare https://github.com/USERNAME/dotfiles.git $HOME/.dotfiles
+	alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+	dotfiles checkout

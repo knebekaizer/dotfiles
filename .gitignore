@@ -1,0 +1,39 @@
+## OS files
+###########
+.DS_Store
+
+# Project files
+###############
+**/.idea/
+**/.eclipse/
+**/.settings/
+**/.cproject
+**/.project
+**/cmake-build-debug/
+**/_build/
+
+
+## Compiled source #
+####################
+*.o
+*.d
+*.deps
+*.so
+*.pyc
+# *.com
+# *.class
+# *.dll
+# *.exe
+
+## but include init.d directory
+!init.d/
+
+# Logs and databases #
+######################
+*.log
+*.pcap
+
+## *** Skipped ***
+####################
+(*)
+
