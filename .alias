@@ -32,15 +32,15 @@ alias svn='svn --username=vladimir.ivanov'
 #alias mempad='wine ~/misc/Mempad.exe ~/misc/work.pad >&/dev/null &'
 #alias polar='wine ~/.wine/drive_c/Program\ Files\ \(x86\)/Polar/Polar\ ProTrainer/Polar\ 32.exe &>/dev/null &'
 
-alias gitx='open -a GitX .'
+#alias gitx='open -a GitX .'
 alias lg='git lg'
 
 #alias ps?='ps aux | grep -i'
 alias ps?='_ps_tmp_=`ps aux` && echo "$_ps_tmp_" | grep -i'
 
 # MacOS
-alias ldd='otool -L'
-alias nproc='sysctl -n hw.ncpu'
+#alias ldd='otool -L'
+#alias nproc='sysctl -n hw.ncpu'
 
 #alias zim='screen -S zim -d -m /usr/local/bin/zim'
 
