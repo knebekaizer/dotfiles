@@ -47,3 +47,4 @@ alias ps?='_ps_tmp_=`ps aux` && echo "$_ps_tmp_" | grep -i'
 #alias ssh-p='ssh -F ~/.ssh/config_pola'
 #alias scp-p='scp -F ~/.ssh/config_pola'
 
+alias dotfiles='/usr/bin/git --git-dir=/home/vdi/.dotfiles/ --work-tree=/home/vdi'
