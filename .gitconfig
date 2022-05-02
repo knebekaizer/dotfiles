@@ -8,7 +8,7 @@
 [core]
 	excludesfile = ~/.gitignore
 #	editor = mate --wait
-	editor = emacs
+	editor = emacs -nw
 
 [push]
 	default = upstream

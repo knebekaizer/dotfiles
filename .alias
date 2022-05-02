@@ -60,5 +60,3 @@ fi
 #alias ssh-p='ssh -F ~/.ssh/config_pola'
 #alias scp-p='scp -F ~/.ssh/config_pola'
 
-alias dotfiles="git --git-dir=\"$HOME\"/.dotfiles/ --work-tree=\"$HOME\""
-
