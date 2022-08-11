@@ -1,5 +1,5 @@
 escape ^\\              # use Ctl-\ instead of Cntr-A
-#escape ^``
+#escape ^``              # Does not work in .screenrc. Use screen -e'``' instead.
 
 #caption always "%n(%t) : %C"
 #caption always "%{= kc}%H (system load: %l)%-21=%{= .m}%D %d.%m.%Y %0c"

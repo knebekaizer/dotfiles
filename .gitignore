@@ -11,15 +11,25 @@
 **/.project
 **/cmake-build-debug/
 **/_build/
+**/.vscode
+**/.gradle/
+**/build
 
+#Personal exclude
+#################
+#_*/
 
 ## Compiled source #
 ####################
 *.o
+*.bc
+*.ll
 *.d
 *.deps
 *.so
 *.pyc
+*.out
+*.kexe
 # *.com
 # *.class
 # *.dll
