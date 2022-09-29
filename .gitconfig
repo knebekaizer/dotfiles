@@ -14,6 +14,8 @@
 	default = upstream
 [pull]
 	rebase = true
+[branch "master"]
+	mergeoptions = --no-ff
 
 [diff]
 #	ignoreSubmodules = dirty
