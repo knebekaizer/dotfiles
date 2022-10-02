@@ -1,3 +1,5 @@
+[[ -r ~/.alias_private ]] && source ~/.alias_private
+
 #alias ls='ls -F --color=none'
 alias l='ls -1F'
 alias lc='ls -1F --color=auto'
@@ -32,7 +34,6 @@ alias html2md="python3 -c 'import markdownify; import sys; html=sys.stdin.read()
 #alias settime='sudo /usr/sbin/ntpdate pool.ntp.org'
 #alias setdate='sudo /usr/sbin/ntpdate pool.ntp.org'
 
-alias svn='svn --username=extern.vladimir.ivanov@validas.de'
 #alias mempad='wine ~/misc/Mempad.exe ~/misc/work.pad >&/dev/null &'
 #alias polar='wine ~/.wine/drive_c/Program\ Files\ \(x86\)/Polar/Polar\ ProTrainer/Polar\ 32.exe &>/dev/null &'
 
@@ -51,5 +52,5 @@ alias nproc='sysctl -n hw.ncpu'
 #alias ssh-p='ssh -F ~/.ssh/config_pola'
 #alias scp-p='scp -F ~/.ssh/config_pola'
 
+alias dotfiles="git --git-dir=\"$HOME\"/.dotfiles/ --work-tree=\"$HOME\""
 
-alias dotfiles='/usr/bin/git --git-dir=/Volumes/vdi/.dotfiles/ --work-tree=/Volumes/vdi'

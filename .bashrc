@@ -13,4 +13,4 @@
 # Override BSD utilities with GNU alternative (GNU binutils)
 GNUPATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
 
-. ~/.alias
+[[ -r ~/.alias ]] && source ~/.alias
