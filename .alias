@@ -28,9 +28,10 @@ alias cp='cp -p -i'
 alias wget='wget --user-agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:75.0) Gecko/20100101 Firefox/75.0"'
 alias ffprobe='ffprobe -hide_banner'
 alias ffmpeg='ffmpeg -hide_banner'
-alias myip='curl -s http://myip.enix.org/REMOTE_ADDR'
+#alias myip='curl -s http://myip.enix.org/REMOTE_ADDR'
+alias myip='curl ifconfig.me'
 alias html2md="python3 -c 'import markdownify; import sys; html=sys.stdin.read(); print(markdownify.markdownify(html, heading_style=\"ATX\"))'"
-
+alias youtube-dl='youtube-dl --write-description'
 #alias settime='sudo /usr/sbin/ntpdate pool.ntp.org'
 #alias setdate='sudo /usr/sbin/ntpdate pool.ntp.org'
 

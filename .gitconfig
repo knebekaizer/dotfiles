@@ -16,6 +16,7 @@
 	rebase = true
 
 [diff]
+#	ignoreSubmodules = dirty
 #	tool = idea
 	tool = meld
 #	tool = bcomp
