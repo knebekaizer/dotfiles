@@ -5,7 +5,7 @@ alias l='ls -1F'
 alias lc='ls -1F --color=auto'
 alias ll='ls -lhp'
 alias la='ls -Ap1'
-alias l.='ls -dp1 .[a-zA-Z0-9_]*'
+alias l.='ls -dF1 .[a-zA-Z0-9_]*'
 #alias md5='md5sum'
 
 alias g=git
@@ -18,7 +18,8 @@ tzs() { tar -cpP "${1%/}" | pv -s $(du -sk "${1%/}" | cut -f1)K | zstd -T0 > "${
 _tzs() { zstd -d -c "$1" | tar xf - ; }
 
 alias getdate='date +%m%d%H%M%Y'
-alias grep='/usr/bin/grep --exclude-dir=.idea --exclude-dir=.svn --exclude-dir=.hg --exclude-dir=.git --binary-files=without-match --no-messages --color=auto'
+alias df='df -H'
+alias grep='grep --exclude-dir=.idea --exclude-dir=.svn --exclude-dir=.hg --exclude-dir=.git --binary-files=without-match --no-messages --color=auto'
 #alias ifconfig='ipconfig'
 alias utf2win='iconv -f utf-8 -t cp1251'
 alias win2utf='iconv -f cp1251 -t utf-8'
@@ -45,8 +46,15 @@ alias lg='git lg'
 alias ps?='_ps_tmp_=`ps aux` && echo "$_ps_tmp_" | grep -i'
 
 # MacOS
-alias ldd='otool -L'
-alias nproc='sysctl -n hw.ncpu'
+if [[ "$OSTYPE" == "darwin"* ]]; then
+	alias ldd='otool -L'
+	alias nproc='sysctl -n hw.ncpu'
+fi
+
+if [[ -z $DOCKER ]]; then
+  alias docker_run='docker run --rm -it -u $(id -u):$(id -g) -v"$HOME":"$HOME":ro -v"$PWD":"$PWD" -w"$PWD" -e DOCKER=1'
+  alias dcrun='docker run --rm -it -u $(id -u):$(id -g) -v"$HOME":"$HOME":ro -v"$PWD":"$PWD"  -w"$PWD" -e DOCKER=1'
+fi
 
 #alias zim='screen -S zim -d -m /usr/local/bin/zim'
 

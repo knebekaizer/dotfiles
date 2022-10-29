@@ -1,3 +1,62 @@
+# git prompt
+# deprecated, use git symbolic-ref --short HEAD 2>/dev/null # Upd: does not work for "detached HEAD"
+# Format: "* master" OR "* (HEAD detached at 8cfc577)"
+function parse_git_branch() {
+  git branch 2> /dev/null | sed -e '/^[^*]/d; s/^\* *//'
+}
+
+function isRemoteSession {
+	if [[ -f /.dockerenv ]] || [[ -n $DOCKER_RUNNING ]]; then
+		return 0
+	fi
+	if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+		return 0
+	fi
+	return 1
+}
+
+RED="\[\033[0;31m\]"
+RED_BOLD="\[\033[1;31m\]"
+GREEN="\[\033[0;32m\]"
+YELLOW="\[\033[0;33m\]"
+BLUE="\[\033[0;34m\]"
+MAGENTA="\[\033[0;35m\]"
+CYAN="\[\033[0;36m\]"
+NO_COLOUR="\[\033[0m\]"
+# if [[ -z $DOCKER ]]; then
+if isRemoteSession; then
+	export PS1="$RED_BOLD\u$NO_COLOUR@$RED_BOLD\h: $BLUE\w $RED\$(parse_git_branch)$NO_COLOUR\n$ "
+else
+	export PS1="$CYAN\h: $BLUE\w $RED\$(parse_git_branch)$NO_COLOUR\n$ "
+fi
+
+export PATH="~/bin:$PATH"
+
+export GEM_HOME=$HOME/.gem
+export PATH="$GEM_HOME/bin:$PATH"
+
+export EDITOR=emacs
+export VISUAL=emacs
+
+shopt -s histappend
+#PROMPT_COMMAND='history -a; history -n'
+PROMPT_COMMAND='history -a'
+export HISTCONTROL="ignorespace:ignoredups"    # ignore duplicate and lines started with space
+export HISTSIZE=9999
+#export HISTIGNORE="&:ls:[bf]g:exit"
+shopt -s cmdhist                   # multiple line commands
+
+set -o pipefail
+
+# export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+[ -x /usr/libexec/java_home ] && export JAVA_HOME=`/usr/libexec/java_home`
+
+# Render markdown
+function rmd () {
+	pandoc $1 | lynx -stdin
+}
 
 # ssh-agent
 #. ~/bin/ssh_prime
@@ -10,7 +69,15 @@
 [ -f ~/.git-completion.bash ] && source ~/.git-completion.bash
 [ -f ~/.ssh-completion.bash ] && source ~/.ssh-completion.bash
 
-# Override BSD utilities with GNU alternative (GNU binutils)
-GNUPATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+# HOME_BREW package manager
+# which brew >&/dev/null
+# BREW_INSTALLED=$?
+# if [[ BREW_INSTALLED ]]; then
+if [[ -x /opt/homebrew/bin/brew ]]; then
+	eval "$(/opt/homebrew/bin/brew shellenv)"
+	export HOMEBREW_EDITOR=mate
+	# Override BSD utilities with GNU alternative (GNU binutils)
+	GNUPATH="$BREW_PREFIX/opt/coreutils/libexec/gnubin:$PATH"
+fi
 
 [[ -r ~/.alias ]] && source ~/.alias
