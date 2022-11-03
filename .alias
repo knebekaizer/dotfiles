@@ -3,7 +3,7 @@ alias l='ls -1F'
 alias lc='ls -1F --color=auto'
 alias ll='ls -lhp'
 alias la='ls -Ap1'
-alias l.='ls -dp1 .[a-zA-Z]*'
+alias l.='ls -dF1 .[a-zA-Z]*'
 alias md5='md5sum'
 
 alias g=git

@@ -1,11 +1,11 @@
-escape ^\\              # use Ctl-\ instead of Cntr-A
-#escape ^``              # Does not work in .screenrc. Use screen -e'``' instead.
+#escape ^\\              # use Ctl-\ instead of Cntr-A
+escape ^``
 
 #caption always "%n(%t) : %C"
 #caption always "%{= kc}%H (system load: %l)%-21=%{= .m}%D %d.%m.%Y %0c"
 #caption always "%{+b kG} %=%{-s} %{.K}%-w%{.B}%n %{.G}%t%{.K}%+w%{.G} %{+s} %="
 #caption always "%{+b kG} %=%{-s} %{.y}%-w%{.C}%n:%t%{.y}%+w%{.G} %{+s} %="
-caption always "%{+b kG} %=%{-s} %{.y}%-w%{.C}%n:%t%{.y}%+w%{.G} %{+s} %= %{=b Gk}%0c"
+caption always "%{+b kG} %=%{-s} %{.Y}%-w%{.C}%n:%t%{.Y}%+w%{.G} %{+s} %= %{=b Gk}%0c"
 
 defscrollback 10000
 startup_message off
