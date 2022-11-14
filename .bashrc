@@ -69,6 +69,9 @@ function rmd () {
 [ -f ~/.git-completion.bash ] && source ~/.git-completion.bash
 [ -f ~/.ssh-completion.bash ] && source ~/.ssh-completion.bash
 
+# zstd settings
+[[ -r ~/.zstdrc ]] && source ~/.zstdrc
+
 # HOME_BREW package manager
 # which brew >&/dev/null
 # BREW_INSTALLED=$?
