@@ -1,0 +1,18 @@
+docker_run() 
+{ 
+	# Here we capture the last argument which is the docker image name
+	local img="${!#}"
+	# local args=("${@:1:$#-1}")
+	set -- "${@:1:$#-1}"
+	docker run --rm -it -u $(id -u):$(id -g) -v"$HOME":"$HOME":ro -v"$PWD":"$PWD"  -w"$PWD" -e DOCKER=1 -h "$img" "$@" "$img"
+}
+
+tarzs() 
+{
+	local CLEVEL=${ZSTD_CLEVEL:-12}
+	if type pv >&/dev/null; then 
+		tar -cpP "${1%/}" | pv -s $(du -sk "${1%/}" | cut -f1)K | zstd -$CLEVEL -T0 > "${1%/}.tar.zst"
+	else
+		tar -cpP "$1" | zstd -$CLEVEL -T0 > "$1.tar.zst"
+	fi
+}

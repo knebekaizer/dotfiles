@@ -51,9 +51,11 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 	alias nproc='sysctl -n hw.ncpu'
 fi
 
+alias dump_ast='g++ -c -fdump-tree-original-raw'
+
 if [[ -z $DOCKER ]]; then
-  alias docker_run='docker run --rm -it -u $(id -u):$(id -g) -v"$HOME":"$HOME":ro -v"$PWD":"$PWD" -w"$PWD" -e DOCKER=1'
   alias dcrun='docker run --rm -it -u $(id -u):$(id -g) -v"$HOME":"$HOME":ro -v"$PWD":"$PWD"  -w"$PWD" -e DOCKER=1'
+	alias dr=docker_run
 fi
 
 #alias zim='screen -S zim -d -m /usr/local/bin/zim'
@@ -63,3 +65,5 @@ fi
 
 alias dotfiles="git --git-dir=\"$HOME\"/.dotfiles/ --work-tree=\"$HOME\""
 
+[[ -r ~/.alias_private ]] && source ~/.alias_private
+[[ -r ~/.alias_ext ]] && source ~/.alias_ext
