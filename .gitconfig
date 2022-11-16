@@ -55,7 +55,7 @@
 	wt = worktree
 	cloneless = clone --filter=blob:none
 
-	l1 = log --date=short --pretty='%C(blue)%h%C(reset) %C(green)%>(10,trunc)%ar%C(reset) %cd%C(reset) %C(bold black)%<(24,trunc)%an%C(reset) - %s'
+	l1 = log --date=short --pretty='%C(blue)%h%C(reset) %C(green)%>(10,trunc)%ar%C(reset) %cd%C(reset) %C(bold black)%<(24,trunc)%an%C(reset) : %s'
 #	l1 = log --pretty='%C(blue)%h%C(reset) %C(green)%ai%C(reset) %C(bold black)%<(32,trunc)%an%C(reset) - %s'
 #	l1 = log --pretty='%h:%ai %<(32,trunc)%an - %s'
 #	lg = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(blue)%h%C(reset) - %C(green)(%ar)%C(reset) %C(black)%s%C(reset) %C(bold black)- %an%C(reset)%C(bold red)%d%C(reset)' --all
