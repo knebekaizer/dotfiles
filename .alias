@@ -1,12 +1,10 @@
-[[ -r ~/.alias_private ]] && source ~/.alias_private
-
 #alias ls='ls -F --color=none'
 alias l='ls -1F'
 alias lc='ls -1F --color=auto'
 alias ll='ls -lhp'
 alias la='ls -Ap1'
-alias l.='ls -dF1 .[a-zA-Z0-9_]*'
-#alias md5='md5sum'
+alias l.='ls -dF1 .[a-zA-Z]*'
+alias md5='md5sum'
 
 alias g=git
 
@@ -27,19 +25,20 @@ alias rsync='rsync --exclude=.svn/ --exclude=.git/ --exclude=.DS_Store'
 alias diff='diff --exclude=.svn --exclude=.git'
 alias cp='cp -p -i'
 alias wget='wget --user-agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:75.0) Gecko/20100101 Firefox/75.0"'
+alias emacs='/usr/bin/emacs -nw'
 alias ffprobe='ffprobe -hide_banner'
 alias ffmpeg='ffmpeg -hide_banner'
 #alias myip='curl -s http://myip.enix.org/REMOTE_ADDR'
 alias myip='curl ifconfig.me'
 alias html2md="python3 -c 'import markdownify; import sys; html=sys.stdin.read(); print(markdownify.markdownify(html, heading_style=\"ATX\"))'"
 alias youtube-dl='youtube-dl --write-description'
+
 #alias settime='sudo /usr/sbin/ntpdate pool.ntp.org'
 #alias setdate='sudo /usr/sbin/ntpdate pool.ntp.org'
 
 #alias mempad='wine ~/misc/Mempad.exe ~/misc/work.pad >&/dev/null &'
 #alias polar='wine ~/.wine/drive_c/Program\ Files\ \(x86\)/Polar/Polar\ ProTrainer/Polar\ 32.exe &>/dev/null &'
 
-alias gitx='open -a GitX .'
 alias lg='git lg'
 
 #alias ps?='ps aux | grep -i'
@@ -67,3 +66,4 @@ alias dotfiles="git --git-dir=\"$HOME\"/.dotfiles/ --work-tree=\"$HOME\""
 
 [[ -r ~/.alias_private ]] && source ~/.alias_private
 [[ -r ~/.alias_ext ]] && source ~/.alias_ext
+

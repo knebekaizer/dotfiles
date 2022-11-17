@@ -35,8 +35,8 @@ export PATH="~/bin:$PATH"
 export GEM_HOME=$HOME/.gem
 export PATH="$GEM_HOME/bin:$PATH"
 
-export EDITOR=emacs
-export VISUAL=emacs
+export EDITOR="emacs -nw"
+export VISUAL="emacs -nw"
 
 shopt -s histappend
 #PROMPT_COMMAND='history -a; history -n'

@@ -8,12 +8,14 @@
 [core]
 	excludesfile = ~/.gitignore
 #	editor = mate --wait
-	editor = emacs
+	editor = emacs -nw
 
 [push]
 	default = upstream
 [pull]
 	rebase = true
+[branch "master"]
+	mergeoptions = --no-ff
 
 [diff]
 #	ignoreSubmodules = dirty
@@ -31,6 +33,9 @@
 
 [grep]
 	lineNumber = true
+
+[tag]
+	sort=-taggerdate
 
 [color]
 	ui = auto
@@ -54,6 +59,7 @@
 	ls = ls-tree --name-only
 	wt = worktree
 	cloneless = clone --filter=blob:none
+	tag = tag --sort=authordate
 
 	l1 = log --date=short --pretty='%C(blue)%h%C(reset) %C(green)%>(10,trunc)%ar%C(reset) %cd%C(reset) %C(bold black)%<(24,trunc)%an%C(reset) : %s'
 #	l1 = log --pretty='%C(blue)%h%C(reset) %C(green)%ai%C(reset) %C(bold black)%<(32,trunc)%an%C(reset) - %s'
