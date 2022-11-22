@@ -57,9 +57,9 @@
 	unstage = reset HEAD --
 	last = log -1 HEAD
 	ls = ls-tree --name-only
+	sl = ls-tree --name-only HEAD --
 	wt = worktree
 	cloneless = clone --filter=blob:none
-	tag = tag --sort=authordate
 
 	l1 = log --date=short --pretty='%C(blue)%h%C(reset) %C(green)%>(10,trunc)%ar%C(reset) %cd%C(reset) %C(bold black)%<(24,trunc)%an%C(reset) : %s'
 #	l1 = log --pretty='%C(blue)%h%C(reset) %C(green)%ai%C(reset) %C(bold black)%<(32,trunc)%an%C(reset) - %s'
