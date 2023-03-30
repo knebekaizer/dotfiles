@@ -35,8 +35,6 @@ export PATH="~/bin:$PATH"
 export GEM_HOME=$HOME/.gem
 export PATH="$GEM_HOME/bin:$PATH"
 
-export PATH="$HOME/.local/bin:$PATH"
-
 export EDITOR="emacs -nw"
 export VISUAL="emacs -nw"
 
