@@ -81,6 +81,7 @@ if [[ -x /opt/homebrew/bin/brew ]]; then
 	export HOMEBREW_EDITOR=mate
 	# Override BSD utilities with GNU alternative (GNU binutils)
 	GNUPATH="$BREW_PREFIX/opt/coreutils/libexec/gnubin:$PATH"
+	PATH="$PATH:/opt/homebrew/opt/binutils/bin"
 fi
 
 [[ -r ~/.alias ]] && source ~/.alias

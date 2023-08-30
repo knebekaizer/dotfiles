@@ -3,7 +3,8 @@ alias l='ls -1F'
 alias lc='ls -1F --color=auto'
 alias ll='ls -lhp'
 alias la='ls -Ap1'
-alias l.='ls -dF1 .[a-zA-Z0-9_]*'
+#alias l.='ls -dF1 .[a-zA-Z0-9_]*'
+alias l.='ls -dF1 .*'
 
 alias g=git
 
