@@ -12,6 +12,7 @@
 
 [push]
 	default = upstream
+	followTags = true
 [pull]
 	rebase = true
 [branch "master"]
