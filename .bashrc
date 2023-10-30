@@ -57,6 +57,9 @@ stty stop ''; stty start '';
 export LANG=en_US.UTF-8
 export LC_COLLATE=C
 
+# WSL: use mouse scroll in `less` utility
+[[ "${LESS}" != *--mouse* ]] && export LESS="${LESS} --mouse"
+
 [ -x /usr/libexec/java_home ] && export JAVA_HOME=`/usr/libexec/java_home 2>/dev/null`
 
 # Render markdown
