@@ -53,6 +53,9 @@ set -o pipefail
 # export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
+# WSL: use mouse scroll in `less` utility
+[[ "${LESS}" != *--mouse* ]] && export LESS="${LESS} --mouse"
+
 [ -x /usr/libexec/java_home ] && export JAVA_HOME=`/usr/libexec/java_home 2>/dev/null`
 
 # Render markdown
