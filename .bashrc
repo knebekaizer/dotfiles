@@ -54,9 +54,6 @@ stty stop ''; stty start '';
 # export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-# sort
-export LC_COLLATE=C
-
 [ -x /usr/libexec/java_home ] && export JAVA_HOME=`/usr/libexec/java_home 2>/dev/null`
 
 # Render markdown
