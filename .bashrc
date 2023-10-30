@@ -90,4 +90,9 @@ if [[ -x /opt/homebrew/bin/brew ]]; then
 	PATH="$PATH:/opt/homebrew/opt/binutils/bin"
 fi
 
+# Linuxbrew
+if [[ -x /home/linuxbrew/.linuxbrew/bin/brew ]]; then
+	eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
+
 [[ -r ~/.alias ]] && source ~/.alias
