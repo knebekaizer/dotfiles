@@ -6,6 +6,8 @@ alias la='ls -Ap1'
 #alias l.='ls -dF1 .[a-zA-Z0-9_]*'
 alias l.='ls -dF1 .*'
 
+alias tree='tree -F'
+
 alias g=git
 
 alias _tgz='tar zxf'
