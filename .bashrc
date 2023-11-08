@@ -52,6 +52,7 @@ set -o pipefail
 
 # export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+export LC_COLLATE=C
 
 # WSL: use mouse scroll in `less` utility
 [[ "${LESS}" != *--mouse* ]] && export LESS="${LESS} --mouse"
