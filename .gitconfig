@@ -85,6 +85,12 @@
 [mergetool "idea"]
     cmd = idea merge $(cd $(dirname $LOCAL) && pwd)/$(basename $LOCAL) $(cd $(dirname $REMOTE) && pwd)/$(basename $REMOTE) $(cd $(dirname $BASE) && pwd)/$(basename $BASE) $(cd $(dirname $MERGED) && pwd)/$(basename $MERGED)
     trustExitCode = true
+# MacOS, IntelliJ
+[difftool "clion"]
+    cmd = /Applications/CLion.app/Contents/MacOS/clion diff $(cd $(dirname "$LOCAL") && pwd)/$(basename "$LOCAL") 
+[mergetool "clion"]
+    cmd = /Applications/CLion.app/Contents/MacOS/clion merge $(cd $(dirname "$LOCAL") && pwd)/$(basename "$LOCAL") $(cd $(dirname "$REMOTE") && pwd)/$(basename "$REMOTE") $(cd $(dirname "$BASE") && pwd)/$(basename "$BASE") $(cd $(dirname "$MERGED") && pwd)/$(basename "$MERGED")
+    trustExitCode = true
 
 [difftool "bcomp"]
     cmd = bcomp \"$LOCAL\" \"$REMOTE\"

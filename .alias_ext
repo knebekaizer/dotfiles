@@ -30,3 +30,17 @@ filext() {
 	echo "$ext"
     # echo -e "$fullpath:\n\tdir  = \"$dir\"\n\tbase = \"$base\"\n\text  = \"$ext\""
 }
+
+git_find_blob() {
+    obj_name="$1"
+    shift
+    git log "$@" --pretty=tformat:'%T %h %s' \
+    | while read tree commit subject ; do
+        if git ls-tree -r $tree | grep -q "$obj_name" ; then
+            echo $commit "$subject"
+            # print branches containing the blob / commit
+            git branch -a --contains $commit
+        fi
+    done
+}
+alias git-find=git_find_blob
