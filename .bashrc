@@ -35,9 +35,12 @@ export PATH="~/bin:$PATH"
 export GEM_HOME=$HOME/.gem
 export PATH="$GEM_HOME/bin:$PATH"
 
+export PATH="$HOME/.local/bin:$PATH"
+
 export EDITOR="emacs -nw"
 export VISUAL="emacs -nw"
 
+# sh / bash / terminal hacks
 shopt -s histappend
 #PROMPT_COMMAND='history -a; history -n'
 PROMPT_COMMAND='history -a'
@@ -45,11 +48,16 @@ export HISTCONTROL="ignorespace:ignoredups"    # ignore duplicate and lines star
 export HISTSIZE=9999
 #export HISTIGNORE="&:ls:[bf]g:exit"
 shopt -s cmdhist                   # multiple line commands
-
+# Use failure status when piping, eg `cat blabla.txt | grep` when `cat` fails
 set -o pipefail
+# Disable Ctrl-S and Ctrl-Q in tty which I always confused by (and keep it free for tmux/screen control)
+stty stop ''; stty start '';
 
 # export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+
+# sort
+export LC_COLLATE=C
 
 [ -x /usr/libexec/java_home ] && export JAVA_HOME=`/usr/libexec/java_home 2>/dev/null`
 
