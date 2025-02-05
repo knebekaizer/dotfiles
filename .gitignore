@@ -11,6 +11,7 @@
 **/.project
 **/cmake-build-debug/
 **/_build/
+**/.build/
 **/.vscode
 **/.gradle/
 **/build

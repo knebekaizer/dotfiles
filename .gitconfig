@@ -4,6 +4,8 @@
 	email = knebekaizer@gmail.com
 [includeIf "gitdir:~/work/**"]
     path = ~/work/.gitconfig
+[includeIf "gitdir:~/work/my/**"]
+    path = ~/work/my/.gitconfig
 
 [core]
 	excludesfile = ~/.gitignore
@@ -13,6 +15,7 @@
 [push]
 	default = upstream
 	followTags = true
+
 [pull]
 	rebase = true
 [branch "master"]
@@ -86,11 +89,11 @@
     cmd = idea merge $(cd $(dirname $LOCAL) && pwd)/$(basename $LOCAL) $(cd $(dirname $REMOTE) && pwd)/$(basename $REMOTE) $(cd $(dirname $BASE) && pwd)/$(basename $BASE) $(cd $(dirname $MERGED) && pwd)/$(basename $MERGED)
     trustExitCode = true
 # MacOS, IntelliJ
-[difftool "clion"]
-    cmd = /Applications/CLion.app/Contents/MacOS/clion diff $(cd $(dirname "$LOCAL") && pwd)/$(basename "$LOCAL") 
-[mergetool "clion"]
-    cmd = /Applications/CLion.app/Contents/MacOS/clion merge $(cd $(dirname "$LOCAL") && pwd)/$(basename "$LOCAL") $(cd $(dirname "$REMOTE") && pwd)/$(basename "$REMOTE") $(cd $(dirname "$BASE") && pwd)/$(basename "$BASE") $(cd $(dirname "$MERGED") && pwd)/$(basename "$MERGED")
-    trustExitCode = true
+# [difftool "clion"]
+#     cmd = /Applications/CLion.app/Contents/MacOS/clion diff $(cd $(dirname "$LOCAL") && pwd)/$(basename "$LOCAL") 
+# [mergetool "clion"]
+#     cmd = /Applications/CLion.app/Contents/MacOS/clion merge $(cd $(dirname "$LOCAL") && pwd)/$(basename "$LOCAL") $(cd $(dirname "$REMOTE") && pwd)/$(basename "$REMOTE") $(cd $(dirname "$BASE") && pwd)/$(basename "$BASE") $(cd $(dirname "$MERGED") && pwd)/$(basename "$MERGED")
+#     trustExitCode = true
 
 [difftool "bcomp"]
     cmd = bcomp \"$LOCAL\" \"$REMOTE\"
@@ -115,3 +118,11 @@
 [mergetool "Kaleidoscope"]
 	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
 	trustExitCode = true
+[mergetool "clion"]
+	cmd = clion merge "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
+	trustExitCode = true
+[difftool "clion"]
+    cmd = clion diff "$LOCAL" "$REMOTE"
+    # cmd = clion diff $(cd $(dirname $LOCAL) && pwd)/$(basename $LOCAL) $(cd $(dirname $REMOTE) && pwd)/$(basename $REMOTE)
+[mergetool]
+	keepBackup = false
