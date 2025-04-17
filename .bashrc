@@ -55,7 +55,7 @@ shopt -s cmdhist                   # multiple line commands
 set -o pipefail
 # Disable Ctrl-S and Ctrl-Q in tty which I always confused by (and keep it free for tmux/screen control)
 if ! isRemoteSession; then
-  stty stop ''; stty start '';
+stty stop ''; stty start '';
 fi
 
 # export LC_ALL=en_US.UTF-8
@@ -100,6 +100,6 @@ if ! [[ -e /.dockerenv ]]; then
 	if [[ -x $HOME/.ssh_prime ]]; then
 		source $HOME/.ssh_prime
 	else
-    	type ssh_prime &>/dev/null && source ssh_prime
+type ssh_prime &>/dev/null && source ssh_prime
 	fi
 fi
