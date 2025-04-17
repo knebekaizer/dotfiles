@@ -90,4 +90,6 @@ fi
 [[ -r ~/.alias ]] && source ~/.alias
 
 # ssh-agent
-type ssh_prime && source ssh_prime
+if ! [[ -e /.dockerenv ]]; then
+    type ssh_prime >&/dev/null && source ssh_prime
+fi
