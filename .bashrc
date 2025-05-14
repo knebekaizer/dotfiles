@@ -51,7 +51,9 @@ shopt -s cmdhist                   # multiple line commands
 # Use failure status when piping, eg `cat blabla.txt | grep` when `cat` fails
 set -o pipefail
 # Disable Ctrl-S and Ctrl-Q in tty which I always confused by (and keep it free for tmux/screen control)
+if ! isRemoteSession; then
 stty stop ''; stty start '';
+fi
 
 # export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
@@ -90,4 +92,4 @@ fi
 [[ -r ~/.alias ]] && source ~/.alias
 
 # ssh-agent
-type ssh_prime && source ssh_prime
+type ssh_prime &>/dev/null && source ssh_prime
