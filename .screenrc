@@ -21,3 +21,5 @@ pow_detach_msg "Screen session of \$LOGNAME \$:cr:\$:nl:ended."
 
 bind ' ' windowlist -b
 
+# clean the terminal after `less` and similar
+altscreen on
