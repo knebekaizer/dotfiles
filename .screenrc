@@ -23,3 +23,7 @@ bind ' ' windowlist -b
 
 # clean the terminal after `less` and similar
 altscreen on
+
+# multiuser aka `screen -x`
+multiuser on
+
