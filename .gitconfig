@@ -22,17 +22,11 @@
 	mergeoptions = --no-ff
 
 [diff]
-#	ignoreSubmodules = dirty
-#	tool = idea
 	tool = meld
-#	tool = bcomp
 	renameLimit = 99999
 
 [merge]
-#	tool = kdiff3
-#	tool = idea
 	tool = meld
-#	tool = bcomp
 	renameLimit = 99999
 
 [grep]
@@ -88,12 +82,6 @@
 [mergetool "idea"]
     cmd = idea merge $(cd $(dirname $LOCAL) && pwd)/$(basename $LOCAL) $(cd $(dirname $REMOTE) && pwd)/$(basename $REMOTE) $(cd $(dirname $BASE) && pwd)/$(basename $BASE) $(cd $(dirname $MERGED) && pwd)/$(basename $MERGED)
     trustExitCode = true
-# MacOS, IntelliJ
-# [difftool "clion"]
-#     cmd = /Applications/CLion.app/Contents/MacOS/clion diff $(cd $(dirname "$LOCAL") && pwd)/$(basename "$LOCAL") 
-# [mergetool "clion"]
-#     cmd = /Applications/CLion.app/Contents/MacOS/clion merge $(cd $(dirname "$LOCAL") && pwd)/$(basename "$LOCAL") $(cd $(dirname "$REMOTE") && pwd)/$(basename "$REMOTE") $(cd $(dirname "$BASE") && pwd)/$(basename "$BASE") $(cd $(dirname "$MERGED") && pwd)/$(basename "$MERGED")
-#     trustExitCode = true
 
 [difftool "bcomp"]
     cmd = bcomp \"$LOCAL\" \"$REMOTE\"
@@ -101,6 +89,12 @@
     cmd = bcomp \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
     trustExitCode = true
 	
+[difftool "clion"]
+	# cmd = clion diff $(cd $(dirname "$LOCAL") && pwd)/$(basename "$LOCAL") $(cd $(dirname "$REMOTE") && pwd)/$(basename "$REMOTE")
+    cmd = clion diff "$LOCAL" "$REMOTE"
+[mergetool "clion"]
+    cmd = clion merge "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
+    trustExitCode = true
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path =
@@ -118,11 +112,8 @@
 [mergetool "Kaleidoscope"]
 	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
 	trustExitCode = true
-[mergetool "clion"]
-	cmd = clion merge "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
-	trustExitCode = true
-[difftool "clion"]
-    cmd = clion diff "$LOCAL" "$REMOTE"
-    # cmd = clion diff $(cd $(dirname $LOCAL) && pwd)/$(basename $LOCAL) $(cd $(dirname $REMOTE) && pwd)/$(basename $REMOTE)
-[mergetool]
-	keepBackup = false
+# VS Code
+[difftool "code"]
+	cmd = code --wait --diff "$LOCAL" "$REMOTE"
+[mergetool "code"]
+    cmd = code --wait --merge "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
