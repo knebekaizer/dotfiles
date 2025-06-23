@@ -1,3 +1,6 @@
+# for non-interactive sessions stop execution here -- https://serverfault.com/a/805532/67528
+[[ $- != *i* ]]  && return
+
 # git prompt
 # deprecated, use git symbolic-ref --short HEAD 2>/dev/null # Upd: does not work for "detached HEAD"
 # Format: "* master" OR "* (HEAD detached at 8cfc577)"
