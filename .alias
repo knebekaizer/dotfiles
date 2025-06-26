@@ -7,6 +7,8 @@ alias la='ls -Ap1'
 alias l.='ls -dF1 .*'
 alias lsd='find . -maxdepth 1 -mindepth 1 -type d'
 
+alias tree='tree -F'
+
 alias g=git
 
 alias _tgz='tar zxf'

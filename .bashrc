@@ -100,6 +100,6 @@ if ! [[ -e /.dockerenv ]]; then
 	if [[ -x $HOME/.ssh_prime ]]; then
 		source $HOME/.ssh_prime
 	else
-    	type ssh_prime >&/dev/null && source ssh_prime
+    	type ssh_prime &>/dev/null && source ssh_prime
 	fi
 fi
