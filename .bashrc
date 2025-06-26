@@ -33,15 +33,15 @@ else
 	export PS1="$CYAN\h: $BLUE\w $RED\$(parse_git_branch)$NO_COLOUR\n$ "
 fi
 
-export PATH="~/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
 
 export GEM_HOME=$HOME/.gem
 export PATH="$GEM_HOME/bin:$PATH"
 
 export PATH="$HOME/.local/bin:$PATH"
 
-export EDITOR="emacs -nw"
-export VISUAL="emacs -nw"
+export EDITOR="emacs"
+export VISUAL="emacs"
 
 # sh / bash / terminal hacks
 shopt -s histappend
@@ -55,7 +55,7 @@ shopt -s cmdhist                   # multiple line commands
 set -o pipefail
 # Disable Ctrl-S and Ctrl-Q in tty which I always confused by (and keep it free for tmux/screen control)
 if ! isRemoteSession; then
-stty stop ''; stty start '';
+  stty stop ''; stty start '';
 fi
 
 # export LC_ALL=en_US.UTF-8
@@ -95,4 +95,11 @@ fi
 [[ -r ~/.alias ]] && source ~/.alias
 
 # ssh-agent
-type ssh_prime &>/dev/null && source ssh_prime
+if ! [[ -e /.dockerenv ]]; then
+	# look for .ssh_prime or ssh_prime
+	if [[ -x $HOME/.ssh_prime ]]; then
+		source $HOME/.ssh_prime
+	else
+    	type ssh_prime >&/dev/null && source ssh_prime
+	fi
+fi

@@ -48,6 +48,8 @@
 	co = checkout
 	br = branch
 	ci = commit
+	sm = submodule
+	sub = submodule
 	sw = switch
 	st = status
 	sti = status --ignored=matching

@@ -5,6 +5,7 @@ alias ll='ls -lhp'
 alias la='ls -Ap1'
 #alias l.='ls -dF1 .[a-zA-Z0-9_]*'
 alias l.='ls -dF1 .*'
+alias lsd='find . -maxdepth 1 -mindepth 1 -type d'
 
 alias g=git
 
@@ -20,11 +21,9 @@ alias rsync='rsync --exclude=.svn/ --exclude=.git/ --exclude=.DS_Store'
 alias diff='diff --exclude=.svn --exclude=.git'
 alias cp='cp -p -i'
 alias scp='scp -p'
-alias ln='ln -w'
 
 # --- Tweak (safe) -----------------
 alias wget='wget --user-agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36"'
-alias emacs='emacs -nw'
 
 # --- Convenience
 alias df='df -H'
@@ -50,9 +49,15 @@ alias youtube-dl='youtube-dl --write-description'
 #alias zim='screen -S zim -d -m /usr/local/bin/zim'
 
 # MacOS
-if [[ "$OSTYPE" == "darwin"* ]]; then
+if [[ ${OSTYPE,,} =~ darwin ]]; then
+  alias ln='ln -w'
   alias ldd='otool -L'
   alias nproc='sysctl -n hw.ncpu'
+fi
+
+# Linux
+if [[ ${OSTYPE,,} =~ linux ]]; then
+	alias emacs='emacs -nw'
 fi
 
 alias dump_ast='g++ -c -fdump-tree-original-raw'

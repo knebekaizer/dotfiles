@@ -1,0 +1,21 @@
+#!/bin/bash
+# Creates an ssh-agent, writes ssh agent info
+# to the file '~/.ssh-agent-info-`hostname`' and then prompts
+# user for keys.  Then any shell can use the agent
+# by sourcing the contents of ~/.ssh-agent-info-`hostname`:
+#  . ~/ssh-agent-info-`hostname`
+
+unset SSH_AGENT_PID
+ssh_info_file=~/.ssh/agent-info-`hostname`
+[ -f $ssh_info_file ] && source $ssh_info_file
+if [ -z "$SSH_AGENT_PID" ] || ! ps -p $SSH_AGENT_PID >&/dev/null ; then
+	ssh-agent > $ssh_info_file
+	sed -i '' -e '3d' $ssh_info_file
+	chmod 700 $ssh_info_file
+	source $ssh_info_file
+#	only use ssh-add if there is a tty
+#	tty >/dev/null && ssh-add ~/.ssh/id_rsa
+fi
+unset ssh_info_file
+
+#echo "Don't forget to 'source $ssh_info_file'"
