@@ -55,6 +55,8 @@ if [[ ${OSTYPE,,} =~ darwin ]]; then
   alias ln='ln -w'
   alias ldd='otool -L'
   alias nproc='sysctl -n hw.ncpu'
+  [[ -x $(which gfind) ]] && alias find=gfind
+  [[ -x $(which gsed) ]] && alias sed=gsed
 fi
 
 # Linux
