@@ -60,6 +60,10 @@ export LC_COLLATE=C
 # WSL: use mouse scroll in `less` utility
 [[ "${LESS}" != *--mouse* ]] && export LESS="${LESS} --mouse"
 
+# GNU `screen` fix: "Cannot make directory '/run/screen': Permission denied"
+export SCREENDIR=$HOME/.screen
+[ -d $SCREENDIR ] || mkdir -p -m 700 $SCREENDIR
+
 [ -x /usr/libexec/java_home ] && export JAVA_HOME=`/usr/libexec/java_home 2>/dev/null`
 
 # Render markdown
