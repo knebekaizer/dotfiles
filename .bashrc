@@ -9,13 +9,13 @@ function parse_git_branch() {
 }
 
 function isRemoteSession {
-	if [[ -f /.dockerenv ]] || [[ -n $DOCKER_RUNNING ]]; then
-		return 0
-	fi
-	if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
-		return 0
-	fi
-	return 1
+    if [[ -f /.dockerenv ]] || [[ -n $DOCKER_RUNNING ]]; then
+        return 0
+    fi
+    if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+        return 0
+    fi
+    return 1
 }
 
 RED="\[\033[0;31m\]"
@@ -28,9 +28,9 @@ CYAN="\[\033[0;36m\]"
 NO_COLOUR="\[\033[0m\]"
 # if [[ -z $DOCKER ]]; then
 if isRemoteSession; then
-	export PS1="$RED_BOLD\u$NO_COLOUR@$RED_BOLD\h: $BLUE\w $RED\$(parse_git_branch)$NO_COLOUR\n$ "
+    export PS1="$RED_BOLD\u$NO_COLOUR@$RED_BOLD\h: $BLUE\w $RED\$(parse_git_branch)$NO_COLOUR\n$ "
 else
-	export PS1="$CYAN\h: $BLUE\w $RED\$(parse_git_branch)$NO_COLOUR\n$ "
+    export PS1="$CYAN\h: $BLUE\w $RED\$(parse_git_branch)$NO_COLOUR\n$ "
 fi
 
 export PATH="$HOME/bin:$PATH"
@@ -56,7 +56,7 @@ set -o pipefail
 # Disable Ctrl-S and Ctrl-Q in tty which I always confused by (and keep it free for tmux/screen control)
 # only do that if there is a tty
 if tty > /dev/null; then
-  stty stop ''; stty start '';
+    stty stop ''; stty start '';
 fi
 
 # export LC_ALL=en_US.UTF-8
@@ -69,7 +69,7 @@ export LC_COLLATE=C
 
 # Render markdown
 function rmd () {
-	pandoc $1 | lynx -stdin
+    pandoc $1 | lynx -stdin
 }
 
 #if brew command command-not-found-init >&/dev/null; then eval "$(brew command-not-found-init)"; fi
@@ -86,21 +86,21 @@ function rmd () {
 # BREW_INSTALLED=$?
 # if [[ BREW_INSTALLED ]]; then
 if [[ -x /opt/homebrew/bin/brew ]]; then
-	eval "$(/opt/homebrew/bin/brew shellenv)"
-	export HOMEBREW_EDITOR=mate
-	# Override BSD utilities with GNU alternative (GNU binutils)
-	GNUPATH="$BREW_PREFIX/opt/coreutils/libexec/gnubin:$PATH"
-	PATH="$PATH:/opt/homebrew/opt/binutils/bin"
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+    export HOMEBREW_EDITOR=mate
+    # Override BSD utilities with GNU alternative (GNU binutils)
+    GNUPATH="$BREW_PREFIX/opt/coreutils/libexec/gnubin:$PATH"
+    PATH="$PATH:/opt/homebrew/opt/binutils/bin"
 fi
 
 [[ -r ~/.alias ]] && source ~/.alias
 
 # ssh-agent
 if ! [[ -e /.dockerenv ]]; then
-	# look for .ssh_prime or ssh_prime
-	if [[ -x $HOME/.ssh_prime ]]; then
-		source $HOME/.ssh_prime
-	else
-    	type ssh_prime &>/dev/null && source ssh_prime
-	fi
+    # look for .ssh_prime or ssh_prime
+    if [[ -x $HOME/.ssh_prime ]]; then
+        source $HOME/.ssh_prime
+    else
+    type ssh_prime &>/dev/null && source ssh_prime
+    fi
 fi
