@@ -54,7 +54,8 @@ shopt -s cmdhist                   # multiple line commands
 # Use failure status when piping, eg `cat blabla.txt | grep` when `cat` fails
 set -o pipefail
 # Disable Ctrl-S and Ctrl-Q in tty which I always confused by (and keep it free for tmux/screen control)
-if ! isRemoteSession; then
+# only do that if there is a tty
+if tty > /dev/null; then
   stty stop ''; stty start '';
 fi
 
