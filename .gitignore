@@ -36,8 +36,9 @@
 # *.dll
 # *.exe
 
-## but include init.d directory
+## but include init.d and other directories (e.g. sshd_config.d)
 !init.d/
+!*.d/
 
 # Logs and databases #
 ######################
