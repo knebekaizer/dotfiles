@@ -6,6 +6,8 @@
     path = ~/work/.gitconfig
 [includeIf "gitdir:~/work/my/**"]
     path = ~/work/my/.gitconfig
+[includeIf "gitdir:~/work/validas/**"]
+    path = ~/work/validas/.gitconfig
 
 [core]
 	excludesfile = ~/.gitignore
