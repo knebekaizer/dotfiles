@@ -81,7 +81,7 @@ function rmd () {
 [ -f ~/.ssh-completion.bash ] && source ~/.ssh-completion.bash
 
 # zstd settings
-[[ -r ~/.zstdrc ]] && source ~/.zstdrc
+[[ -f ~/.zstdrc ]] && source ~/.zstdrc
 
 # HOME_BREW package manager
 # which brew >&/dev/null
