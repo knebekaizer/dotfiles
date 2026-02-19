@@ -1,2 +1,3 @@
-.load '/Volumes/vdi/work/3d/sqlite3-pcre/pcre.so'
-.load '/Volumes/vdi/work/3d/sqlean/sqlean-macos-arm64/sqlean.dylib'
+.mode tabs
+# .load '/Volumes/vdi/work/3d/sqlite3-pcre/pcre.so'
+# .load '/Volumes/vdi/work/3d/sqlean/sqlean-macos-arm64/sqlean.dylib'
