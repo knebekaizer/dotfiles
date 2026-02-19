@@ -8,6 +8,14 @@ docker_run()
 }
 alias dr=docker_run
 
+# recompress zip to zstd
+zip2zst() {
+  D=$(mktemp -d -p.) && \
+  unzip -d $D "$1" && \
+  tar -v -C $D --zstd -cf "${1%.zip}.tar.zst" .
+  rm -rf $D
+}
+
 tzs() 
 {
   local CLEVEL=${ZSTD_CLEVEL:-12}
