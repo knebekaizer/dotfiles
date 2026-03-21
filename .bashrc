@@ -53,6 +53,8 @@ export HISTSIZE=9999
 shopt -s cmdhist                   # multiple line commands
 # Use failure status when piping, eg `cat blabla.txt | grep` when `cat` fails
 set -o pipefail
+# enable negation in glob: `ls !(*.txt)`
+shopt -s extglob
 # Disable Ctrl-S and Ctrl-Q in tty which I always confused by (and keep it free for tmux/screen control)
 # only do that if there is a tty
 if tty > /dev/null; then

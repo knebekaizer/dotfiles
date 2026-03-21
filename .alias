@@ -32,6 +32,10 @@ alias df='df -H'
 alias ffprobe='ffprobe -hide_banner'
 alias ffmpeg='ffmpeg -hide_banner'
 
+# --- PWD minus HOME:
+alias pwd-h='[ $PWD == $HOME ] && echo . || echo ${PWD#$HOME/}'
+
+
 # --- Shortcuts
 alias lg='git lg'
 alias ps?='_ps_tmp_=`ps aux` && echo "$_ps_tmp_" | grep -i'
@@ -76,6 +80,8 @@ fi
 #alias scp-p='scp -F ~/.ssh/config_pola'
 
 alias dotfiles="git --git-dir=\"$HOME\"/.dotfiles/ --work-tree=\"$HOME\""
+
+alias yt-proxy='yt-dlp --proxy socks5://192.168.1.112:1082'
 
 [[ -r ~/.alias_private ]] && source ~/.alias_private
 [[ -r ~/.alias_ext ]] && source ~/.alias_ext
