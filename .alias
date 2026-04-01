@@ -5,7 +5,7 @@ alias ll='ls -lhp'
 alias la='ls -Ap1'
 #alias l.='ls -dF1 .[a-zA-Z0-9_]*'
 alias l.='ls -dF1 .*'
-alias lsd='find . -maxdepth 1 -mindepth 1 -type d'
+alias lsd='ls -d1 */'
 
 alias tree='tree -F'
 
@@ -14,6 +14,7 @@ alias g=git
 alias _tgz='tar zxf'
 alias _tbz='tar jxf'
 alias _txz='tar Jxf'
+alias _tar='tar -xf'
 # tzs() { tar -cpP "${1%/}" | pv -s $(du -sk "${1%/}" | cut -f1)K | zstd -T0 > "${1%/}.tar.zst"; }
 _tzs() { zstd -d -c "$1" | tar xf - ; }
 
@@ -22,6 +23,8 @@ alias grep='grep --exclude-dir=.idea --exclude-dir=.svn --exclude-dir=.hg --excl
 alias rsync='rsync --exclude=.svn/ --exclude=.git/ --exclude=.DS_Store'
 alias diff='diff --exclude=.svn --exclude=.git'
 alias cp='cp -p -i'
+
+# Preserves modification times, access times, and file mode bits from the source file
 alias scp='scp -p'
 
 # --- Tweak (safe) -----------------
