@@ -11,6 +11,7 @@
 
 [core]
 	excludesfile = ~/.gitignore
+	pager = "less -FR"
 #	editor = mate --wait
 	editor = emacs -nw
 
