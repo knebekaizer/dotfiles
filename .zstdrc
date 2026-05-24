@@ -1,2 +1,2 @@
-export ZSTD_CLEVEL=19
+export ZSTD_CLEVEL=12
 export ZSTD_NBTHREADS=`nproc`
