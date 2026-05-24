@@ -77,11 +77,11 @@ function rmd () {
 #if brew command command-not-found-init >&/dev/null; then eval "$(brew command-not-found-init)"; fi
 #if [ -f $(brew --prefix)/etc/bash_completion ]; then . $(brew --prefix)/etc/bash_completion; fi
 
-[ -f ~/.git-completion.bash ] && source ~/.git-completion.bash
-[ -f ~/.ssh-completion.bash ] && source ~/.ssh-completion.bash
+[ -f $HOME/.git-completion.bash ] && source $HOME/.git-completion.bash
+[ -f $HOME/.ssh-completion.bash ] && source $HOME/.ssh-completion.bash
 
 # zstd settings
-[[ -f ~/.zstdrc ]] && source ~/.zstdrc
+[[ -f $HOME/.zstdrc ]] && source $HOME/.zstdrc
 
 # HOME_BREW package manager
 # which brew >&/dev/null
@@ -99,10 +99,5 @@ fi
 
 # ssh-agent
 if ! [[ -e /.dockerenv ]]; then
-    # look for .ssh_prime or ssh_prime
-    if [[ -x $HOME/.ssh_prime ]]; then
-        source $HOME/.ssh_prime
-    else
-    type ssh_prime &>/dev/null && source ssh_prime
-    fi
+    [[ -x $HOME/.ssh_prime ]] && source $HOME/.ssh_prime
 fi
