@@ -24,6 +24,9 @@
 [branch "master"]
 	mergeoptions = --no-ff
 
+[log]
+	follow = true
+
 [diff]
 	tool = meld
 	renameLimit = 99999
