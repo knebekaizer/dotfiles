@@ -8,6 +8,15 @@ docker_run()
 }
 alias dr=docker_run
 
+docker_create () 
+{ 
+  local Cont="${!#}";
+  set -- "${@:1:$#-1}";
+  docker container create --interactive --tty --volume $HOME:$HOME:ro -v"$PWD":"$PWD" -w"$PWD" --volume /dev/log:/dev/log --privileged --network host --hostname $Cont --name $Cont $Cont
+  docker container start $Cont
+}
+alias dcc=docker_create
+
 # recompress zip to zstd
 zip2zst() {
   D=$(mktemp -d -p.) && \
