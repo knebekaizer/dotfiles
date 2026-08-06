@@ -35,6 +35,9 @@
 # *.class
 # *.dll
 # *.exe
+**/__pycache__/
+**/.venv/
+**/.venv-*/
 
 ## but include init.d and other directories (e.g. sshd_config.d)
 !init.d/
