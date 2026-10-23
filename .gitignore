@@ -2,6 +2,12 @@
 ###########
 .DS_Store
 
+## AI stuff - override with ! on a repo basis when needed
+###########
+**/.github/copilot-instructions.md
+**/.agents/
+AGENTS.md
+
 # Project files
 ###############
 **/.idea/
@@ -16,7 +22,7 @@
 **/.gradle/
 **/build
 
-#Personal exclude
+# Personal exclude
 #################
 #_*/
 
